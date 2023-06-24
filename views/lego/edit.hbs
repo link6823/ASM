@@ -1,0 +1,98 @@
+<style>
+    .bg-light {
+        background-color: #f8f9fa;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .col-md-8 {
+        width: 100%;
+        max-width: 768px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-group {
+        margin-top: 1.5rem;
+    }
+
+    .text-primary {
+        color: #007bff;
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: transparent;
+        border: 1px solid #d6d6d6;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.25rem;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-secondary {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+</style>
+<form class="bg-light text-center col-md-8" action="/lego/edit/{{lego._id}}" method="post">
+   <div>
+      <h1 class="text text-primary">Edit product</h1>
+   </div>
+   <div class="form-group mt-3">
+      <label class="text text-success">Name</label>
+      <input class="form-control" type="text" name="name" value="{{ lego.name }}" required>
+   </div>
+   <div class="form-group mt-3">
+      <label class="text text-success">Price</label>
+      <input class="form-control" type="text" name="price" value="{{ lego.price }}" required>
+   </div>
+   <div class="form-group mt-3">
+      <label class="text text-success">Quantity</label>
+      <input class="form-control" type="number" name="quantity" value="{{ lego.quantity }}" required>
+   </div>
+   <div class="form-group mt-3">
+      <label class="text text-success">Image</label><br>
+      <img src="{{ lego.image}}" width="100" height="100"><br>
+      <input class="form-control" type="text" name="image" value="{{ lego.image }}" required>
+   </div>
+   <div class="form-group mt-3">
+      <label class="text text-success">Video</label><br>
+      <iframe src="https://www.youtube.com/embed/{{ lego.video }}" width="200" height="150"></iframe>
+      <input class="form-control" type="text" name="video" value="{{ lego.video }}" required>
+   </div>
+      <div class="form-group mt-3">
+      <label class="text text-success">Movie</label>
+      <input class="form-control" type="text" name="movie" value="{{ lego.movie }}" required>
+   </div>
+   <div class="form-group mt-3">
+      <input class="btn btn-danger" type="submit" value="Edit">
+   </div>
+    <div class="form-group mt-3">
+        <a class="btn btn-secondary" href="/lego"
+            onclick="return confirm('Unsaved Information will be lost!');">Cancel</a> 
+    </div>
+</form>

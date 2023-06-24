@@ -1,0 +1,143 @@
+<style>
+  .container {
+  margin: 5rem auto;
+  text-align: center;
+}
+
+.table-success th {
+  color: blue;
+}
+
+.btn {
+  margin-right: 0.5rem;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-success {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.h5 th {
+  color: blue;
+}
+
+th:nth-child(4),
+th:nth-child(5),
+th:nth-child(6) {
+  color: blue;
+}
+
+th:nth-child(7) {
+  color: brown;
+}
+
+img {
+  width: 240px;
+  height: 270px;
+}
+
+iframe {
+  width: 330px;
+  height: 270px;
+}
+
+.btn-secondary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+.btn-secondary:focus,
+.btn-secondary.focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+.btn-secondary:active,
+.btn-secondary.active {
+  background-color: #0056b3;
+  color: #fff;
+}
+</style>
+
+<div class="container text-center mt-5 mb-5 col-md-10">
+    <table class="table table-success">
+        
+        
+        <tr>
+            <th class="h1 text text-danger" colspan="6" > FIGURE LIST </th>
+            <th><a class="btn btn-secondary" href="/"
+                onclick="return confirm('Back to home ?');">HOME</a>
+            </a></th>
+        </tr>
+   
+        <tr>
+            <th colspan="4">
+                <form action="/toy/search" method="post">
+                    <input class="form-control" type="search" name="keyword" placeholder="Search by name">
+                </form>
+            </th>
+            <th colspan="2">
+                <a class="btn btn-primary" href="/toy/ascending">Sort by price ascending</a>
+                <a class="btn btn-success" href="/toy/descending">Sort by price descending</a>
+            </th>
+            <th>
+                <a class="btn btn-success" href="/toy/add">Add</a>
+                <a class="btn btn-danger" href="/toy/drop"
+                    onclick="return confirm('Are you sure to delete all figure ?');">Drop</a>
+            </th>
+        </tr>
+        <tr class="h5">
+            <th style="color: blue;">Name</th>
+            <th style="color: blue;">Price</th>
+            <th style="color: blue;">Quantity</th>
+            <th style="color: blue;">Poster</th>
+            <th style="color: blue;">Trailer</th>
+            <th style="color: blue;">Movie/Game</th>
+            <th style="color:brown">Menu</th>
+        </tr>
+        {{#each toy }}
+        <tr>
+            <th>{{ name }}</th>
+            <th>{{ price }}</th>
+            <th>{{ quantity }}</th>
+            <th>
+                <img src="{{ image }}" width="240" height="270">
+            </th>
+            <th>
+                <iframe src="https://www.youtube.com/embed/{{ video }}" width="330" height="270"></iframe>
+            </th>
+            <th>{{ movie }}</th>
+            <th>
+                <a class="btn btn-warning" href="/toy/edit/{{_id}}">Edit</a>
+                <a class="btn btn-danger" href="/toy/delete/{{_id}}"
+                    onclick="return confirm('Are you sure to delete this figure ?');">Delete</a>
+            </th>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+

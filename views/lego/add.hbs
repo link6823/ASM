@@ -1,0 +1,94 @@
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .text-primary {
+        color: #007bff;
+    }
+
+    .text-success {
+        color: #28a745;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: transparent;
+        border: 1px solid #d6d6d6;
+        padding: 0.375rem 0.75rem;
+        border-radius: 0.25rem;
+    }
+
+    .btn-danger {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-secondary {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+</style>
+
+<div class="form-container">
+    <form action="/lego/add" method="post">
+        <div>
+            <h1 class="text text-primary">Add new product</h1>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Name</label>
+            <input class="form-control" type="text" name="name" required>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Price</label>
+            <input class="form-control" type="text" name="price" required>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Quantity</label>
+            <input class="form-control" type="number" name="quantity" required>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Image</label>
+            <input class="form-control" type="text" name="image" required>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Video</label>
+            <input class="form-control" type="text" name="video" required>
+        </div>
+        <div class="form-group mt-3">
+            <label class="text text-success">Movie</label>
+            <input class="form-control" type="text" name="movie" required>
+        </div>
+        <div class="form-group mt-3">
+            <input class="btn btn-danger" type="submit" value="Add">
+        </div>
+        <div class="form-group mt-3">
+            <a class="btn btn-secondary" href="/lego" onclick="return confirm('Unsaved Information will be lost!');">Cancel</a>
+        </div>
+    </form>
+</div>
